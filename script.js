@@ -1,4 +1,3 @@
-// Tema (dark/light)
 const root = document.documentElement;
 const themeToggle = document.getElementById('themeToggle');
 const savedTheme = localStorage.getItem('theme');
@@ -10,12 +9,8 @@ themeToggle?.addEventListener('click', () => {
   localStorage.setItem('theme', now);
 });
 
-// Ano atual no footer
 document.getElementById('year').textContent = new Date().getFullYear();
 
-
-
-// Animação suave ao rolar
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) entry.target.classList.add('in');
@@ -27,7 +22,6 @@ document.querySelectorAll('.section, .card, .timeline-item').forEach(el => {
   observer.observe(el);
 });
 
-// Botão voltar ao topo
 const backToTopBtn = document.getElementById('backToTop');
 window.addEventListener('scroll', () => {
   if (window.scrollY > 300) {
@@ -60,7 +54,7 @@ detailButtons.forEach(btn => {
 function hideModal() {
   projectModal.classList.remove('show');
   modalVideo.pause();
-  modalVideo.src = ""; // Limpa o src para parar o download/processamento
+  modalVideo.src = "";
   modalVideo.currentTime = 0; 
   document.body.style.overflow = ''; 
 }
