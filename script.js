@@ -56,15 +56,20 @@ const detailButtons = document.querySelectorAll('.btn-details');
 
 detailButtons.forEach(btn => {
   btn.addEventListener('click', () => {
-    projectModal.classList.add('show');
-    modalVideo.play();
-    document.body.style.overflow = 'hidden'; 
+    const videoSrc = btn.getAttribute('data-video');
+    if (videoSrc) {
+      modalVideo.src = videoSrc;
+      projectModal.classList.add('show');
+      modalVideo.play();
+      document.body.style.overflow = 'hidden'; 
+    }
   });
 });
 
 function hideModal() {
   projectModal.classList.remove('show');
   modalVideo.pause();
+  modalVideo.src = ""; // Limpa o src para parar o download/processamento
   modalVideo.currentTime = 0; 
   document.body.style.overflow = ''; 
 }
