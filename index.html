@@ -205,33 +205,31 @@
         <h2 id="proj-title">Projetos em Destaque</h2>
         <div class="cards" role="list">
           <article class="card project" role="listitem">
-            <img loading="lazy" src="assets/plataforma-ensino.png" alt="Dashboard de dados" />
+            <img loading="lazy" src="assets/plataforma-ensino.png" alt="Plataforma de ensino" class="project-media" />
             <div class="card-body">
               <h3>Plataforma de ensino</h3>
-              <p>Plataforma educacional construída do zero, com certificado, moderação de comentários.</p>
-              <a class="btn small" href="#">Detalhes</a>
+              <p>Plataforma educacional construída do zero, com gestão de cursos com vídeo aulas, geração de
+                certificado, moderação de comentários utilizando IA</p>
+              <a class="btn small btn-details" href="javascript:void(0)">Ver Demonstração</a>
             </div>
           </article>
           <article class="card project" role="listitem">
-            <img loading="lazy"
-              src="https://images.unsplash.com/photo-1760548425425-e42e77fa38f1?q=80&w=1112&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt="Aplicativo móvel" />
+            <img loading="lazy" src="assets/auditoria.png" alt="Sistema de auditoria" class="project-media" />
             <div class="card-body">
-              <h3>App de Operações</h3>
-              <p>Aplicativo móvel para otimizar processos internos e reduzir
-                tempo de ciclo.</p>
-              <a class="btn small" href="#">Detalhes</a>
+              <h3>Sistema inteligente de auditoria</h3>
+              <p>Aplicação central com registros nas mudanças em entidades principais</p>
+              <a class="btn small btn-details" href="javascript:void(0)">Ver Demonstração</a>
             </div>
           </article>
           <article class="card project" role="listitem">
             <img loading="lazy"
               src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1600&auto=format&fit=crop"
-              alt="Infraestrutura cloud" />
+              alt="Infraestrutura cloud" class="project-media" />
             <div class="card-body">
               <h3>Arquitetura Cloud</h3>
               <p>Infraestrutura escalável com automação, observabilidade e
                 segurança.</p>
-              <a class="btn small" href="#">Detalhes</a>
+              <a class="btn small btn-details" href="javascript:void(0)">Ver Demonstração</a>
             </div>
           </article>
         </div>
@@ -460,6 +458,18 @@
       <path d="M18 15l-6-6-6 6"></path>
     </svg>
   </button>
+
+  <div id="projectModal" class="modal" aria-hidden="true" role="dialog">
+    <div class="modal-content">
+      <video id="modalVideo" controls playsinline>
+        <source src="assets/plataforma-video-otimizado.2.0.mp4" type="video/mp4">
+        Seu navegador não suporta vídeos.
+      </video>
+      <div class="modal-footer">
+        <button id="closeModal" class="btn primary">Voltar</button>
+      </div>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
