@@ -124,15 +124,9 @@ a { color: var(--primary); text-decoration: none; }
 .skill .bar::after { content: ""; position: absolute; inset: 0; width: calc(var(--value) * 1%); background: var(--primary); }
 
 
-.contact-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
-.contact-form { display: grid; gap: 12px; padding: 16px; }
-.contact-form label { display: grid; gap: 6px; }
-.contact-form input, .contact-form textarea {
-  background: transparent; border: 1px solid var(--border); color: var(--text);
-  border-radius: 10px; padding: 10px 12px; font: inherit;
-}
-.contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(124,92,255,0.2); }
-.form-status { color: var(--muted); margin-top: 6px; }
+.text-center { text-align: center; }
+.contact-list { list-style: none; padding: 0; margin: 20px 0 0; display: grid; gap: 12px; }
+.contact-list.centered { justify-content: center; }
 
 
 .site-footer { border-top: 1px solid var(--border); padding: 24px 0; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0)); }

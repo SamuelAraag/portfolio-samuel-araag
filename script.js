@@ -13,16 +13,7 @@ themeToggle?.addEventListener('click', () => {
 // Ano atual no footer
 document.getElementById('year').textContent = new Date().getFullYear();
 
-// Submit simulado do formulário
-function handleSubmit(e) {
-  e.preventDefault();
-  const status = e.target.querySelector('.form-status');
-  status.textContent = 'Enviando...';
-  setTimeout(() => {
-    status.textContent = 'Mensagem enviada! Obrigado pelo contato.';
-    e.target.reset();
-  }, 900);
-}
+
 
 // Animação suave ao rolar
 const observer = new IntersectionObserver((entries) => {
