@@ -118,7 +118,8 @@ a { color: var(--primary); text-decoration: none; }
 .timeline { position: relative; margin-left: 14px; }
 .timeline::before { content: ""; position: absolute; left: 6px; top: 0; bottom: 0; width: 2px; background: var(--border); }
 .timeline-item { position: relative; padding-left: 28px; margin: 18px 0; }
-.timeline-item .dot { position: absolute; left: 0; top: 6px; width: 14px; height: 14px; border-radius: 50%; background: var(--primary); box-shadow: 0 0 0 3px rgba(124,92,255,0.25); }
+.timeline-item .dot-primary { position: absolute; left: 0; top: 6px; width: 14px; height: 14px; border-radius: 50%; background: var(--primary); box-shadow: 0 0 0 3px rgba(124,92,255,0.25); }
+.timeline-item .dot { position: absolute; left: 0; top: 6px; width: 14px; height: 14px; border-radius: 50%; background: grey; box-shadow: 0 0 0 3px rgba(124,92,255,0.25); }
 .pill { font-size: .8rem; background: var(--primary); color: white; padding: 2px 8px; border-radius: 999px; margin-left: 8px; }
 
 
