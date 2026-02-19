@@ -1,4 +1,4 @@
-# Portfólio — Samuel Santos Jesus
+# Portfólio — Samuel Araag
 Site estático moderno (HTML/CSS/JS) com tema escuro/claro, animações e layout responsivo.
 
 ## Link para acesso

@@ -33,34 +33,3 @@ window.addEventListener('scroll', () => {
 backToTopBtn.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
-
-const projectModal = document.getElementById('projectModal');
-const modalVideo = document.getElementById('modalVideo');
-const closeModalBtn = document.getElementById('closeModal');
-const detailButtons = document.querySelectorAll('.btn-details');
-
-detailButtons.forEach(btn => {
-  btn.addEventListener('click', () => {
-    const videoSrc = btn.getAttribute('data-video');
-    if (videoSrc) {
-      modalVideo.src = videoSrc;
-      projectModal.classList.add('show');
-      modalVideo.play();
-      document.body.style.overflow = 'hidden'; 
-    }
-  });
-});
-
-function hideModal() {
-  projectModal.classList.remove('show');
-  modalVideo.pause();
-  modalVideo.src = "";
-  modalVideo.currentTime = 0; 
-  document.body.style.overflow = ''; 
-}
-
-closeModalBtn?.addEventListener('click', hideModal);
-
-projectModal?.addEventListener('click', (e) => {
-  if (e.target === projectModal) hideModal();
-});
