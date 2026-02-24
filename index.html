@@ -245,6 +245,37 @@
           <div class="case-header">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
               stroke-linejoin="round" aria-hidden="true">
+              <rect x="16" y="16" width="6" height="6" rx="1"></rect>
+              <rect x="2" y="16" width="6" height="6" rx="1"></rect>
+              <rect x="9" y="2" width="6" height="6" rx="1"></rect>
+              <path d="M5 16v-3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v3"></path>
+              <path d="M12 8v3"></path>
+            </svg>
+            <h3>Mensageria com RabbitMQ: Desacoplamento e responsabilidade</h3>
+          </div>
+          <p class="case-context">
+            O projeto PR Manager necessitava de um sistema eficiente para notificações de status, além de estrutura para
+            backups e orquestração de processos.
+          </p>
+
+          <p>
+            Modelei um fluxo focado em eventos de domínio utilizando exchanges fanout. A responsabilidade de escutar os
+            eventos foi transferida para consumers independentes, removendo a dependência direta do producer sobre quem
+            receberá a mensagem.
+          </p>
+
+          <ul>
+            <li><strong>Trade-offs:</strong> aumento da complexidade operacional e maior necessidade de observabilidade
+              em processos assíncronos</li>
+            <li><strong>Impacto:</strong> desacoplamento real de responsabilidades, escalabilidade horizontal e
+              resiliência via retry e controle de DLQ</li>
+          </ul>
+        </article>
+
+        <article class="card case">
+          <div class="case-header">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" aria-hidden="true">
               <path d="M3 3v18h18"></path>
               <path d="m19 9-5 5-4-4-3 3"></path>
             </svg>
