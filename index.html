@@ -414,6 +414,31 @@
               cenários extremos</li>
           </ul>
         </article>
+
+        <article class="card case">
+          <div class="case-header">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+              <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+            <h3>Arquitetura Event-Driven com Apache Kafka - Desacoplamento e Escalabilidade</h3>
+          </div>
+          <p class="case-context">
+            Construção de uma aplicação de gestão de pedidos baseada em eventos, demonstrando padrões de messaging orientado a eventos com Kafka e .NET.
+          </p>
+
+          <p>
+            Modelei um sistema com arquitetura event-driven utilizando Apache Kafka para orquestração de processos assíncronos. A aplicação foi dividida em camadas: Domain (regras de negócio), API (publicadora de eventos) e Notifier (consumidora via BackgroundService). Containerização com Docker Compose garantiu ambiente reproducível com Zookeeper e Kafka pré-configurados.
+          </p>
+
+          <ul>
+            <li><strong>Tecnologias:</strong> Apache Kafka, .NET Core, Docker Compose, Clean Architecture</li>
+            <li><strong>Trade-offs:</strong> maior complexidade operacional, garantias de entrega vs. latência</li>
+            <li><strong>Impacto:</strong> desacoplamento de componentes, escalabilidade horizontal, processamento resiliente de eventos em background</li>
+            <li><strong>Repositório:</strong> <a href="https://github.com/SamuelAraag/DeliveryKafka" target="_blank" rel="noopener">DeliveryKafka no GitHub</a></li>
+          </ul>
+        </article>
       </div>
     </section>
 
@@ -427,6 +452,7 @@
           <li>APIs REST</li>
           <li>RavenDB & SQL</li>
           <li>Clean Architecture & DDD</li>
+          <li>Apache Kafka</li>
           <li>CI/CD & Docker</li>
           <li>Liderança Técnica</li>
         </ul>
