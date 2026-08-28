@@ -80,6 +80,7 @@ a { color: var(--primary); text-decoration: none; }
 .btn.primary:hover { background: var(--primary-acc); }
 .btn.ghost { background: transparent; color: var(--text); }
 .btn.small { padding: 8px 12px; font-size: .9rem; }
+.btn:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
 .hero-meta { display: flex; gap: 16px; margin-top: 14px; color: var(--muted); }
 .hero-image { position: relative; animation: fadeInScale 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
 @keyframes fadeInScale {
@@ -97,7 +98,7 @@ a { color: var(--primary); text-decoration: none; }
 
 
 .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: start; }
-.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
 
 
 .tags { list-style: none; padding: 0; margin: 16px 0 0; display: flex; flex-wrap: wrap; gap: 8px; }
@@ -113,13 +114,36 @@ a { color: var(--primary); text-decoration: none; }
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
-.card.project:hover {
+.card.project { display: flex; flex-direction: column; }
+
+/* Só o card que tem ação reage ao ponteiro — os outros não são clicáveis. */
+.card.project:has(.card-acao):hover,
+.card.project:has(.card-acao):focus-within {
   transform: translateY(-8px);
   box-shadow: 0 12px 40px rgba(124, 92, 255, 0.15);
   border-color: var(--primary);
 }
 
 .card-body { padding: 16px; }
+.card.project .card-body { flex: 1; display: flex; flex-direction: column; }
+.card.project .card-body p { margin-bottom: 16px; }
+.card.project .card-body .tags { margin-bottom: 16px; }
+
+.card-acao { margin-top: auto; align-self: flex-start; }
+.card-acao svg { width: 16px; height: 16px; }
+
+.card.project .card-body .card-nota {
+  margin-top: auto; margin-bottom: 0;
+  display: flex; align-items: center; gap: 8px;
+  color: var(--muted); font-size: .9rem;
+}
+.card-nota svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+.apenas-leitor {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; border: 0;
+  overflow: hidden; clip-path: inset(50%); white-space: nowrap;
+}
 .case { margin-bottom: 24px; padding: 24px; transition: transform 0.3s ease, box-shadow 0.3s ease; }
 .case:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(0,0,0,0.3); }
 .case-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
@@ -135,6 +159,7 @@ a { color: var(--primary); text-decoration: none; }
 .timeline-item .dot-primary { position: absolute; left: 0; top: 6px; width: 14px; height: 14px; border-radius: 50%; background: var(--primary); box-shadow: 0 0 0 3px rgba(124,92,255,0.25); }
 .timeline-item .dot { position: absolute; left: 0; top: 6px; width: 14px; height: 14px; border-radius: 50%; background: grey; box-shadow: 0 0 0 3px rgba(124,92,255,0.25); }
 .pill { font-size: .8rem; background: var(--primary); color: white; padding: 2px 8px; border-radius: 999px; margin-left: 8px; }
+.experience-meta { color: var(--primary); font-size: .9rem; font-weight: 600; margin-top: -6px; }
 
 
 .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
@@ -167,12 +192,15 @@ a { color: var(--primary); text-decoration: none; }
 @media (max-width: 900px) {
   .hero-content { grid-template-columns: 1fr; }
   .grid-2 { grid-template-columns: 1fr; }
-  .cards { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 620px) {
   .cards { grid-template-columns: 1fr; }
   .skills-grid { grid-template-columns: 1fr; }
   .site-header .nav { display: none; }
+
+  /* Em tela estreita o balão se ancora no cabeçalho da seção, não no ícone. */
+  .dica { position: static; }
+  .dica-balao { left: 0; transform: none; max-width: 100%; }
 }
 
 
@@ -212,7 +240,7 @@ a { color: var(--primary); text-decoration: none; }
 
 .project-media {
   width: 100%;
-  height: 200px;
+  aspect-ratio: 16 / 10;
   object-fit: cover;
   display: block;
   border-radius: 14px 14px 0 0;
@@ -222,4 +250,37 @@ a { color: var(--primary); text-decoration: none; }
 
 [data-theme="light"] .project-media {
   filter: brightness(1.1) contrast(0.95);
+}
+
+
+.section-heading { position: relative; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.section-heading h2 { margin: 0 0 20px; }
+
+.dica { position: relative; display: inline-flex; margin-bottom: 20px; }
+.dica-gatilho {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 4px; border: 0; border-radius: 999px;
+  background: transparent; color: var(--muted); cursor: pointer;
+  transition: color 0.3s ease;
+}
+.dica-gatilho:hover { color: var(--primary); }
+.dica-gatilho:focus-visible { color: var(--primary); outline: 2px solid var(--primary); outline-offset: 2px; }
+.dica-gatilho svg { width: 20px; height: 20px; }
+.dica-balao {
+  position: absolute; top: calc(100% + 8px); left: 50%; transform: translateX(-50%);
+  width: max-content; max-width: min(320px, 78vw);
+  padding: 10px 12px; border-radius: 12px;
+  background: var(--bg-alt); border: 1px solid var(--border); color: var(--text);
+  font-size: .9rem; line-height: 1.5;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+  visibility: hidden; opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 60;
+}
+.dica:hover .dica-balao,
+.dica-gatilho:focus ~ .dica-balao { visibility: visible; opacity: 1; }
+.dica.dica-oculta .dica-balao { visibility: hidden; opacity: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  .dica-balao, .dica-gatilho { transition: none; }
 }

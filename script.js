@@ -50,3 +50,18 @@ window.addEventListener('scroll', () => {
 backToTopBtn.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
+
+const dicas = document.querySelectorAll('.dica');
+
+dicas.forEach((dica) => {
+  dica.addEventListener('pointerleave', () => dica.classList.remove('dica-oculta'));
+  dica.addEventListener('focusin', () => dica.classList.remove('dica-oculta'));
+});
+
+document.addEventListener('keydown', (evento) => {
+  if (evento.key !== 'Escape') return;
+  dicas.forEach((dica) => {
+    dica.classList.add('dica-oculta');
+    dica.querySelector('.dica-gatilho')?.blur();
+  });
+});
