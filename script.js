@@ -11,12 +11,10 @@ const updateIcon = (theme) => {
   if (themeIconEl) themeIconEl.innerHTML = theme === 'dark' ? themeIcons.sun : themeIcons.moon;
 };
 
-if (savedTheme) {
-  document.documentElement.setAttribute('data-theme', savedTheme);
-  updateIcon(savedTheme);
-} else {
-  updateIcon('dark'); // Padrão
-}
+const systemPrefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+const initialTheme = savedTheme || (systemPrefersLight ? 'light' : 'dark');
+document.documentElement.setAttribute('data-theme', initialTheme);
+updateIcon(initialTheme);
 
 themeToggle?.addEventListener('click', () => {
   const isDark = root.getAttribute('data-theme') === 'dark';
@@ -28,16 +26,23 @@ themeToggle?.addEventListener('click', () => {
 
 document.getElementById('year').textContent = new Date().getFullYear();
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) entry.target.classList.add('in');
-  });
-}, { threshold: 0.12 });
+const revealTargets = document.querySelectorAll('.hero-image, .section, .card, .case, .timeline-item');
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-document.querySelectorAll('.section, .card, .timeline-item').forEach(el => {
-  el.classList.add('reveal');
-  observer.observe(el);
-});
+if (!prefersReducedMotion && 'IntersectionObserver' in window) {
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('in');
+      obs.unobserve(entry.target);
+    });
+  }, { threshold: 0, rootMargin: '0px 0px 15% 0px' });
+
+  revealTargets.forEach(el => {
+    el.classList.add('reveal');
+    observer.observe(el);
+  });
+}
 
 const backToTopBtn = document.getElementById('backToTop');
 window.addEventListener('scroll', () => {

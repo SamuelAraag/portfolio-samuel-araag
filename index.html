@@ -35,11 +35,6 @@
         "sameAs": ["https://www.linkedin.com/in/samuelaraag/", "https://github.com/SamuelAraag"]
       }
     </script>
-  <style>
-    html {
-      scroll-behavior: smooth;
-    }
-  </style>
 </head>
 
 <body>
@@ -82,11 +77,7 @@
         </div>
 
         <div class="hero-image">
-          <img fetchpriority="high" src="assets/profile-photo-sam-otimizada.png" alt="Imagem do autor em destaque" />
-          <div class="glass-card">
-            <h3>Projetos</h3>
-            <p>Aplicações corporativas</p>
-          </div>
+          <img fetchpriority="high" src="assets/profile-photo-sam-otimizada.png" alt="Samuel Araag" />
         </div>
       </div>
     </section>
@@ -94,9 +85,7 @@
     <section id="sobre" class="section" aria-labelledby="sobre-title">
       <div class="container grid-2">
         <div>
-          <article class="card about-card">
-            <img loading="lazy" src="assets/inovacao-e-tecnologia-equipe.png" alt="Equipe colaborando em tecnologia" />
-          </article>
+          <img loading="lazy" src="assets/inovacao-e-tecnologia-equipe.png" alt="" />
         </div>
 
         <div>
@@ -348,7 +337,7 @@
         <p class="section-description"><em>Uma síntese das principais decisões arquiteturais e desafios técnicos
             superados ao longo da minha trajetória.</em></p>
 
-        <article class="card case">
+        <article class="case">
           <div class="case-header">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
               stroke-linejoin="round" aria-hidden="true">
@@ -379,7 +368,7 @@
           </ul>
         </article>
 
-        <article class="card case">
+        <article class="case">
           <div class="case-header">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
               stroke-linejoin="round" aria-hidden="true">
@@ -408,7 +397,7 @@
           </ul>
         </article>
 
-        <article class="card case">
+        <article class="case">
           <div class="case-header">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
               stroke-linejoin="round" aria-hidden="true">
@@ -436,7 +425,7 @@
           </ul>
         </article>
 
-        <article class="card case">
+        <article class="case">
           <div class="case-header">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
               stroke-linejoin="round" aria-hidden="true">
@@ -464,7 +453,7 @@
           </ul>
         </article>
 
-        <article class="card case">
+        <article class="case">
           <div class="case-header">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
               stroke-linejoin="round" aria-hidden="true">
@@ -494,7 +483,7 @@
           </ul>
         </article>
 
-        <article class="card case">
+        <article class="case">
           <div class="case-header">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
               stroke-linejoin="round" aria-hidden="true">
@@ -524,9 +513,9 @@
     </section>
 
 
-    <section id="skills" class="section alt">
+    <section id="skills" class="section alt" aria-labelledby="skills-title">
       <div class="container">
-        <h2>Competências Técnicas</h2>
+        <h2 id="skills-title">Competências Técnicas</h2>
         <ul class="tags">
           <li>C# & .NET Core</li>
           <li>Microsserviços & Event-Driven</li>
@@ -546,12 +535,21 @@
 
     <section id="contato" class="section" aria-labelledby="contato-title">
       <div class="container text-center">
-        <div>
-          <h2 id="contato-title">Vamos conversar</h2>
-          <p>Parcerias, oportunidades e desafios. Entre em contato nas redes
-            sociais
-          </p>
-        </div>
+        <h2 id="contato-title">Vamos conversar</h2>
+        <p>Parcerias, oportunidades e desafios. Me encontra por aqui:</p>
+        <ul class="contact-list centered" role="list">
+          <li>
+            <a class="btn ghost" href="https://www.linkedin.com/in/samuelaraag/" target="_blank"
+              rel="noopener noreferrer">
+              LinkedIn <span class="apenas-leitor">(abre em nova aba)</span>
+            </a>
+          </li>
+          <li>
+            <a class="btn ghost" href="https://github.com/SamuelAraag" target="_blank" rel="noopener noreferrer">
+              GitHub <span class="apenas-leitor">(abre em nova aba)</span>
+            </a>
+          </li>
+        </ul>
       </div>
     </section>
   </main>
