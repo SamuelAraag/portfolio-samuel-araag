@@ -70,3 +70,30 @@ document.addEventListener('keydown', (evento) => {
     dica.querySelector('.dica-gatilho')?.blur();
   });
 });
+
+const moreProjects = document.querySelector('.more-projects');
+const moreProjectsToggle = document.querySelector('.more-projects-toggle');
+const moreProjectsContent = document.getElementById('more-projects-content');
+let moreProjectsCloseTimeout;
+
+moreProjectsToggle?.addEventListener('click', () => {
+  const isOpen = moreProjectsToggle.getAttribute('aria-expanded') === 'true';
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  window.clearTimeout(moreProjectsCloseTimeout);
+  moreProjectsToggle.setAttribute('aria-expanded', String(!isOpen));
+
+  if (!isOpen) {
+    moreProjectsContent.hidden = false;
+    window.requestAnimationFrame(() => moreProjects.classList.add('is-open'));
+    return;
+  }
+
+  moreProjects.classList.remove('is-open');
+  if (reduceMotion) {
+    moreProjectsContent.hidden = true;
+    return;
+  }
+  moreProjectsCloseTimeout = window.setTimeout(() => {
+    moreProjectsContent.hidden = true;
+  }, 320);
+});
